@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="nfxxxxx.jpg" />
+  <title>Umairah's Website</title>
+  <link rel="stylesheet" href="styleContact.css" />
+</head>
+<body>
+
+<!-- Dark/Light Mode Toggle Button -->
+<button id="darkModeToggle" title="Toggle dark/light mode">🌙</button>
+
+<h1 class="slide-in-text slide-down">Contact Details📍</h1>
+
+<nav class="navbar">
+  <ul>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="Education.html">Education</a></li>
+    <li><a href="Experience.html">Experience</a></li>
+    <li class="dropdown">
+      <a href="#" class="more-link">More</a>
+      <div class="dropdown-content">
+        <a href="Achievements.html">Achievements</a>
+        <a href="Contact.html">Contact</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<h1 class="slide-in-text slide-down">Get in Touch📱</h1>
+
+<section class="contact-section">
+  <div class="contact-container">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or want to collaborate, feel free to send a message!</p>
+
+    <form id="contact-form" action="https://formspree.io/f/xwpbbvaj" method="POST">
+      <label for="name">Name</label>
+      <input type="text" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" required />
+
+      <label for="message">Message</label>
+      <textarea name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <p id="status-message"></p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Umairah. All rights reserved.
+</footer>
+
+<!-- JavaScript -->
+<script>
+  // Form Submission Handling
+  const form = document.getElementById("contact-form");
+  const statusMessage = document.getElementById("status-message");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        statusMessage.innerText = "✅ Message sent successfully!";
+        form.reset();
+      } else {
+        statusMessage.innerText = "⚠️ Oops! Something went wrong.";
+      }
+    } catch {
+      statusMessage.innerText = "❌ Error: Unable to send message.";
+    }
+  });
+
+  // Dark/Light Mode Toggle
+  const toggleButton = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      body.classList.add('dark-mode');
+      toggleButton.textContent = '☀️';
+    } else {
+      body.classList.remove('dark-mode');
+      toggleButton.textContent = '🌙';
+    }
+  }
+
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+
+  toggleButton.addEventListener('click', () => {
+    const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
+
+<script>
+  // Page fade-in on load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+  });
+
+  // Page fade-out on link click
+  document.querySelectorAll("a").forEach(link => {
+    const url = link.getAttribute("href");
+
+    // Only apply fade if navigating to another internal page
+    if (url && !url.startsWith("#") && !url.startsWith("mailto") && !url.startsWith("http")) {
+      link.classList.add("transition-link");
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500); // Match transition duration
+      });
+    }
+  });
+</script>
+
+
+</body>
+</html>

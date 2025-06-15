@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="nfxxxxx.jpg.jpg" />
+    <title>Umairah's Website</title>
+    <link rel="stylesheet" href="styleHome.css" />
+
+    <style>
+      /* Dark Mode Toggle Button */
+      #darkModeToggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #8e44ad;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+      }
+
+      #darkModeToggle:hover {
+        background-color: #732d91;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <!-- Toggle Button -->
+    <button id="darkModeToggle" title="Toggle dark mode">🌙</button>
+
+    <h1 class="slide-in-text"> Welcome To My Resume</h1>
+    <hr/>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="Home.html" title="This is Home page">Home</a></li>
+        <li><a href="Education.html" title="This is Education page">Education</a></li>
+        <li><a href="Experience.html" title="This is Experience page">Experience</a></li>
+        <li class="dropdown">
+          <a href="#" class="more-link">More</a>
+          <div class="dropdown-content">
+            <a href="Achievements.html" title="This is Achievements page">Achievements</a>
+            <a href="Contact.html" title="This is Contact page">Contact</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <h2>About Me</h2>
+
+    <img src="GAMBAR FORMAL.jpg" alt="image" class="center-img" title="This is me! " />
+
+    <div class="about-container">
+      <p>
+        Hello! I’m <strong>Wan Umairah Yusra Binti Wan Mohamad Sukri</strong>, born on 10th August 2004.
+        I am an enthusiastic and dedicated student with a strong passion for information management and digital technology.
+        Currently pursuing my degree in Library Management at UiTM Puncak Perdana, I thrive on organizing data,
+        exploring new digital tools, and helping people find the information they need—especially in the library field.
+      </p>
+
+      <p>
+        I’m known for being detail-oriented, adaptable, and a fast learner. My interests include digital archiving,
+        user experience design, and knowledge organization. I'm looking forward to contributing to the information industry
+        through innovative solutions and continuous learning.
+      </p>
+
+      <p>
+        Outside of academics, I enjoy reading, minimalist design, and participating in community service projects.
+        Let’s connect and explore new opportunities together!
+      </p>
+    </div>
+
+    <div class="container">
+      <h3> Contact me</h3>
+      <a href="https://wa.me/60108783358" target="_blank" title="Contact me through this number">WhatsApp</a>
+      <a href="mailto:wuyusra08@gmail.com" target="_blank" title="Contact me at Gmail">Gmail</a>
+    </div>
+
+
+    <footer>
+      <p>© 2025 Umairah's. All rights reserved.</p>
+    </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+      const toggleButton = document.getElementById('darkModeToggle');
+      const body = document.body;
+
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        toggleButton.textContent = '☀️';
+      }
+
+      toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        if (body.classList.contains('dark-mode')) {
+          toggleButton.textContent = '☀️';
+          localStorage.setItem('theme', 'dark');
+        } else {
+          toggleButton.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    </script>
+
+<script>
+  // Page fade-in on load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+  });
+
+  // Page fade-out on link click
+  document.querySelectorAll("a").forEach(link => {
+    const url = link.getAttribute("href");
+
+    // Only apply fade if navigating to another internal page
+    if (url && !url.startsWith("#") && !url.startsWith("mailto") && !url.startsWith("http")) {
+      link.classList.add("transition-link");
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500); // Match transition duration
+      });
+    }
+  });
+</script>
+
+  </body>
+</html>

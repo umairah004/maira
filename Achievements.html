@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="nfxxxxx.jpg" />
+  <title>Umairah's Website</title>
+  <link rel="stylesheet" href="styleAchieve.css" />
+  <style>
+    .category-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: pointer;
+      background-color: #e6e6e6;
+      color: #333;
+      padding: 10px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .category-title:hover {
+      background-color: #d0d0d0;
+    }
+
+    .achievement-group {
+      display: none;
+      padding-left: 15px;
+    }
+
+    .achievement-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      background-color: #fff8f0;
+      border-left: 5px solid #bda4c4;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .achievement-table td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .achievement-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .achievement-table td:first-child {
+      font-weight: bold;
+      width: 35%;
+      color: #5c4b6b;
+    }
+
+    .preu-images img {
+      max-width: 100%;
+      height: auto;
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    #darkModeToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #eee;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    body.fade-in {
+      opacity: 1;
+      transition: opacity 0.5s ease-in;
+    }
+
+    .transition-link {
+      transition: opacity 0.5s ease-out;
+    }
+
+    body {
+      opacity: 0;
+    }
+
+    body.dark-mode {
+      background-color: #1c1c1c;
+      color: white;
+    }
+
+    body.dark-mode .category-title {
+      background-color: #333;
+      color: #fff;
+      border-color: #555;
+    }
+
+    body.dark-mode .category-title:hover {
+      background-color: #444;
+    }
+
+    body.dark-mode .achievement-table {
+      background-color: #2e2e2e;
+      color: white;
+      border-left-color: #d8b4f8;
+    }
+
+    body.dark-mode .achievement-table td {
+      border-bottom: 1px solid #444;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="slide-in-down">My Achievements 🏆</h1>
+  <hr />
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="Home.html" title="This is Home page">Home</a></li>
+      <li><a href="Education.html" title="This is Education page">Education</a></li>
+      <li><a href="Experience.html" title="This is Experience page">Experience</a></li>
+      <li class="dropdown">
+        <a href="#" class="more-link">More</a>
+        <div class="dropdown-content">
+          <a href="Achievements.html" title="This is Achievements page">Achievements</a>
+          <a href="Contact.html" title="This is Contact page">Contact</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <br />
+
+  <main class="achievements-container">
+
+    <!-- PRIMARY -->
+    <div class="category-title" onclick="toggleCategory('primary')">📘 Primary School</div>
+    <div class="achievement-group" id="primary">
+      <table class="achievement-table">
+        <tr>
+          <td>Academic Excellence Awards, 2011–2015</td>
+          <td>Received annual awards for top performance in primary school.</td>
+        </tr>
+        <tr>
+          <td>UPSR – Scored 3A 3B | PSRA – Mumtaz Sofi</td>
+          <td>Achieved solid results in national primary exams (2015).</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- SECONDARY -->
+    <div class="category-title" onclick="toggleCategory('secondary')">📗 Secondary School</div>
+    <div class="achievement-group" id="secondary">
+      <table class="achievement-table">
+        <tr>
+          <td>Best Student in History, 2018</td>
+          <td>Selected for outstanding performance in History subject.</td>
+        </tr>
+        <tr>
+          <td>100% Attendance Award, 2019</td>
+          <td>Recognized for full attendance throughout the academic year.</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- PRE-U -->
+    <div class="category-title" onclick="toggleCategory('preu')">📙 Pre-University (STPM)</div>
+    <div class="achievement-group" id="preu">
+      <table class="achievement-table">
+        <tr>
+          <td>Best Student in Humanities Stream, 2023</td>
+          <td>Recognized for outstanding academic performance in STPM 2022.</td>
+        </tr>
+        <tr>
+          <td>2nd Place in Petanque Competition, 2023</td>
+          <td>Won Second Place in a district-level petanque competition during Form 6.</td>
+        </tr>
+        <tr>
+          <td>Top 10 Best STPM Students, 2023</td>
+          <td>Awarded for achievement of CGPA of 3.42</td>
+        </tr>
+      </table>
+
+      <!-- IMAGES -->
+      <div class="preu-images">
+        <img src="PETANQUE F6.jpg" alt="Petanque Competition" class="achievement-img" />
+        <img src="Pointer f6.jpg" alt="STPM Pointer Ceremony" class="achievement-img" />
+        <img src="anugerah f6.jpg" alt="STPM Award Ceremony" class="achievement-img" />
+      </div>
+
+      <!-- VIDEO -->
+      <div class="video-section" style="margin-top: 20px; text-align: center;">
+        <h4 style="margin-bottom: 10px; font-size: 1.2em; color: #5c4b6b;">🎬 My Life in STPM</h4>
+        <video controls width="560" height="315" style="max-width: 100%; border-radius: 10px;">
+          <source src="STPM LIFE.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- UNIVERSITY -->
+    <div class="category-title" onclick="toggleCategory('university')">📕 University</div>
+    <div class="achievement-group" id="university">
+      <table class="achievement-table">
+        <tr>
+          <td>Dean’s Award, Semester 1 – 2024</td>
+          <td>Earned Dean’s Award for achieving a CGPA of 3.53 in the first semester of degree studies.</td>
+        </tr>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- JS -->
+  <script>
+    function toggleCategory(id) {
+      const section = document.getElementById(id);
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('darkModeToggle').textContent = '☀️';
+      }
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+      const url = link.getAttribute("href");
+      if (url && !url.startsWith("#") && !url.startsWith("mailto") && !url.startsWith("http")) {
+        link.classList.add("transition-link");
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.body.classList.remove("fade-in");
+          document.body.style.opacity = 0;
+          setTimeout(() => {
+            window.location.href = url;
+          }, 500);
+        });
+      }
+    });
+
+    const toggleButton = document.getElementById('darkModeToggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        toggleButton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        toggleButton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle">🌙</button>
+</body>
+</html>

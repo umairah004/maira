@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umairah's Education</title>
+  <link rel="icon" type="image/jpg" href="nfxxxxx.jpg.jpg" />
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f5f3ff;
+      color: black;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, p {
+      color: black;
+    }
+
+    .toggle-container {
+      text-align: right;
+      padding: 10px 20px;
+    }
+
+    .toggle-button {
+      padding: 8px 14px;
+      background-color: #b983ff;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
+    }
+
+    .toggle-button:hover {
+      background-color: #a068d8;
+    }
+
+    .header-area {
+      position: relative;
+      text-align: center;
+      padding: 40px 10px;
+      background: linear-gradient(to bottom right, #e4d0ff, #f4eaff);
+      overflow: hidden;
+    }
+
+    .header-area h1 {
+      margin: 0;
+      font-size: 2.5em;
+      position: relative;
+      z-index: 2;
+      animation: slideInDown 1s ease forwards;
+      opacity: 0;
+    }
+
+    .star {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/1828/1828884.png') no-repeat center;
+      background-size: contain;
+      animation: twinkle 3s infinite ease-in-out alternate;
+    }
+
+    .star:nth-child(2) { top: 10px; left: 20px; animation-delay: 0s; }
+    .star:nth-child(3) { top: 20px; right: 30px; animation-delay: 1s; }
+    .star:nth-child(4) { bottom: 15px; left: 50px; animation-delay: 2s; }
+    .star:nth-child(5) { top: 5px; right: 80px; animation-delay: 1.5s; }
+    .star:nth-child(6) { bottom: 10px; right: 10px; animation-delay: 2.5s; }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+      to { opacity: 1; transform: scale(1.2) rotate(360deg); }
+    }
+
+    @keyframes slideInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #eee0ff;
+      flex-wrap: wrap;
+    }
+
+    .navbar li {
+      margin: 10px 15px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      padding: 10px 15px;
+      color: #4b0082;
+      background-color: #e3ccff;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #c5a8f0;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #e8d6ff;
+      min-width: 140px;
+      z-index: 1;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #4b0082;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #d1b3ff;
+    }
+
+    #education {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .education-container {
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .education-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f5eaff;
+      border: 2px solid #dabfff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(160, 120, 255, 0.2);
+    }
+
+    .education-item img {
+      width: 120px;
+      border-radius: 0;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    body.dark-mode {
+      background-color: #1e1e2f;
+      color: #eaeaea;
+    }
+
+    body.dark-mode .navbar ul {
+      background-color: #3a3a4d;
+    }
+
+    body.dark-mode .navbar a {
+      background-color: #5a4a80;
+      color: #eaeaea;
+    }
+
+    body.dark-mode .navbar a:hover {
+      background-color: #7757c5;
+    }
+
+    body.dark-mode .dropdown-content {
+      background-color: #4a3f66;
+    }
+
+    body.dark-mode .education-item {
+      background-color: #2a2a3d;
+      border-color: #9c7cdd;
+    }
+
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode p {
+      color: #eaeaea;
+    }
+
+    body.dark-mode .toggle-button {
+      background-color: #eaeaea;
+      color: #1e1e2f;
+    }
+
+    body.dark-mode .header-area {
+      background: linear-gradient(to bottom right, #2c233d, #3a2f52);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle-container">
+    <button class="toggle-button" id="theme-toggle" onclick="toggleDarkMode()">🌙</button>
+  </div>
+
+  <div class="header-area">
+    <h1>Education Journey 📖</h1>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Education.html">Education</a></li>
+      <li><a href="Experience.html">Experience</a></li>
+      <li class="dropdown">
+        <a href="#" class="more-link">More</a>
+        <div class="dropdown-content">
+          <a href="Achievements.html">Achievements</a>
+          <a href="Contact.html">Contact</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-container">
+
+      <div class="education-item">
+        <img src="logo skbrj.png" alt="SK Bukit Rawang Jaya" />
+        <div class="education-text">
+          <h3>PRIMARY SCHOOL</h3>
+          <p><strong>School Name:</strong> SK Bukit Rawang Jaya</p>
+          <p><strong>Years Attended:</strong> 2011 – 2016</p>
+          <p>UPSR: 3A 3B.</p>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <img src="SAM Rawang.jpg" alt="SAM Rawang" />
+        <div class="education-text">
+          <h3>SECONDARY SCHOOL</h3>
+          <p><strong>School Name:</strong> SAM Rawang</p>
+          <p><strong>Years Attended:</strong> 2017 – 2021</p>
+          <p>SPM: 1A 5B 5C</p>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <img src="SMK Seri Garing.png" alt="SMK Seri Garing" />
+        <div class="education-text">
+          <h3>PRE-UNIVERSITY</h3>
+          <p><strong>School Name:</strong> SMK Seri Garing</p>
+          <p><strong>Years Attended:</strong> 2021 – 2023</p>
+          <p>STPM CGPA: 3.42</p>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <img src="logo uitm.jpg" alt="UiTM Logo" />
+        <div class="education-text">
+          <h3>UNIVERSITY</h3>
+          <p><strong>University:</strong> Universiti Teknologi MARA (UiTM)</p>
+          <p><strong>Course:</strong> Bachelor of Information Science (Hons.) Library Management</p>
+          <p><strong>Years Attended:</strong> September 2024 – Present</p>
+          <p><strong>Awarded Dean’s List (Semester 1)</strong></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function toggleDarkMode() {
+      const body = document.body;
+      const toggle = document.getElementById("theme-toggle");
+
+      body.classList.toggle("dark-mode");
+
+      toggle.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    }
+  </script>
+
+
+<script>
+  // Fade in on load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+  });
+
+  // Fade out on navigation
+  document.querySelectorAll("a").forEach(link => {
+    const url = link.getAttribute("href");
+
+    if (url && !url.startsWith("#") && !url.startsWith("mailto") && !url.startsWith("http")) {
+      link.classList.add("transition-link");
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500); // Duration matches transition
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

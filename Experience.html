@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="nfxxxxx.jpg.jpg" />
+  <title>Umairah's Website</title>
+  <link rel="stylesheet" href="styleExperience.css" />
+</head>
+<body>
+  <body>
+    <button id="darkModeToggle" class="mode-toggle">🌙</button>
+
+
+  <!-- Page Heading -->
+  <h1 class="slide-in-text"> Experience & Involvement🎯</h1>
+  <hr />
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="Home.html" title="This is Home page">Home</a></li>
+      <li><a href="Education.html" title="This is Education page">Education</a></li>
+      <li><a href="Experience.html" title="This is Experience page">Experience</a></li>
+      <li class="dropdown">
+        <a href="#" class="more-link">More</a>
+        <div class="dropdown-content">
+          <a href="Achievements.html" title="This is Achievements page">Achievements</a>
+          <a href="Contact.html" title="This is Contact page">Contact</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <br />
+
+  <!-- Experience Section -->
+  <section class="experience-section">
+    <h2 class="section-title">My Journey So Far</h2>
+    <div class="experience-container">
+
+      <div class="experience-card">
+        <h3>Archery Club Secretary🏹 <span class="company">@ SAM Rawang</span></h3>
+        <p class="duration">February 2021 - October 2021 | SAM Rawang</p>
+        <ul>
+          <li>Maintained and completed the official activity log book for attendance and records.</li>
+          <li>Participated in virtual meetings and helped with planning post-MCO club programs.</li>
+          <li>Contributed to maintaining member engagement during limited physical activities.</li>
+        </ul>
+      </div>
+
+      <div class="experience-card">
+        <h3>School Shop Worker🏫 <span class="company">@ Koperasi SAMER Berhad</span></h3>
+        <p class="duration">April 2023 - June 2023 | SAM Rawang</p>
+        <ul>
+          <li>Ran the store and sold products to students and staff.</li>
+          <li>Tracked distribution of essentials to students in need.</li>
+          <li>Assisted with restocking, especially food items.</li>
+        </ul>
+      </div>
+
+      <div class="experience-card">
+        <h3>Nursery Teacher👩‍🏫 <span class="company">@ Al-Kauthar Eduqids</span></h3>
+        <p class="duration">June 2024 – Aug 2024 | Rawang Branch</p>
+        <ul>
+          <li>Cared for 11 children aged 3 years old.</li>
+          <li>Participated in daily routines including cooking, cleaning, and bathing children.</li>
+          <li>Planned and prepared daily educational activities.</li>
+        </ul>
+      </div>
+
+      <div class="experience-card">
+        <h3>GenLIS Club Member📚 <span class="company">@ UiTM Puncak Perdana</span></h3>
+        <p class="duration">October 2024 – Present</p>
+        <ul>
+          <li>Active member of Generation Library Information Society (GenLIS).</li>
+          <li>A member of Entrepreneurship Exco or Exco Keusahawanan.</li>
+          <li>Managed orders and inventory for club merchandise.</li>
+          <li>Contributed to event organization and community engagement initiatives.</li>
+        </ul>
+      </div>
+
+      <div class="experience-card">
+        <h3>Sekretariat Mahasiswa Fakulti (SMF), Fakulti Sains Maklumat👩‍🎓<span class="company">@ UiTM Puncak Perdana</span></h3>
+        <p class="duration">May 2025 – Present</p>
+        <ul>
+          <li>Recently became part of the student council aka SMF of the Information Science Faculty.</li>
+          <li>Member of Academic Exco – promotes a positive academic environment and supports student learning initiatives.</li>
+          <li>Represents student voices and helps organize faculty-level academic and welfare programs.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+<script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  // Load saved theme
+  if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️';
+  }
+
+  toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      toggleButton.textContent = '☀️';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleButton.textContent = '🌙';
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+
+<script>
+  // Page fade-in on load
+  document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("fade-in");
+  });
+
+  // Page fade-out on link click
+  document.querySelectorAll("a").forEach(link => {
+    const url = link.getAttribute("href");
+
+    // Only apply fade if navigating to another internal page
+    if (url && !url.startsWith("#") && !url.startsWith("mailto") && !url.startsWith("http")) {
+      link.classList.add("transition-link");
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.style.opacity = 0;
+        setTimeout(() => {
+          window.location.href = url;
+        }, 500); // Match transition duration
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
